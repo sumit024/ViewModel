@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
         binding= ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val viewModel=ViewModelProvider(this).get(MainActivityViewModel::class.java)
+        val viewModel=ViewModelProvider(this,MainViewModelFactory(10)).get(MainActivityViewModel::class.java)
         binding.textView.text=viewModel.number.toString()
         binding.button.setOnClickListener {
            viewModel.addOne()
